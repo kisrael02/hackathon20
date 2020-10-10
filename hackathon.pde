@@ -2,19 +2,6 @@
 //good  fucking luck Kayla the menu is totally broken
 int screen = 0;
 
-  int menuA = round(height*0.205);
-  int menuB = round(height*0.283);
-  int menuC = round(height*0.32);
-  int menuD = round(height*0.36);
-  int menuE = round(height*0.434);
-  int menuF = round(height*0.473);
-  int menuG = round(height*0.51);
-  //menu text x position
-  int textX = round(width*0.025);
-
-  // values of the y values of the clickable menu items so they can get moved
-
-  
 void setup()
 {
   size(displayWidth, displayHeight);
@@ -23,7 +10,6 @@ void draw()
 {
   background(255);
   genUI();
-  
 }
 public void genUI()
 {
@@ -37,7 +23,7 @@ public void genUI()
   //menu text x position
   int textX = round(width*0.025);
 
-//design 
+  //design 
   //boxes
   noStroke();
   fill(238, 237, 246);
@@ -67,24 +53,36 @@ public void genUI()
   text("Long Term Goals", textX, menuE);
   text("Projects", textX, menuF);
   text("Tasks", textX, menuG);
- //clickable logic
-  if (mousePressed&& (mouseX <height*0.125) && (mouseY> (menuA+(0.0184*height))) && (mouseY > (menuA-(0.009*height))))
+  //clickable logic
+  if (mousePressed&& (mouseX <width*0.15) && (mouseY< (menuA+(0.0184*height))) && (mouseY < (menuA-(0.009*height))))
   {
-    println("true");
     brainDumpUI();
-  }
-}
-
-
-public int genUIHelper(int y)
-{
-  int x = textX;
-  if ((mouseY <= (y+(height*0.0092)) && (mouseY >= (y))) && (abs(mouseX - x) <=(width*0.125)))
-  {
-    println("true");
-    return 1;
   } 
-      return 0;
+  else if (mousePressed&& (mouseX <width*0.15) && (mouseY< (menuB+(0.0184*height))) && (mouseY < (menuB-(0.009*height))))
+  {
+    nextActionListUI();
+  } 
+  else if (mousePressed&& (mouseX <width*0.15) && (mouseY< (menuC+(0.0184*height))) && (mouseY < (menuC-(0.009*height))))
+  {
+    calendarUI();
+  }
+  else if (mousePressed&& (mouseX <width*0.15) && (mouseY< (menuD+(0.0184*height))) && (mouseY < (menuD-(0.009*height))))
+  {
+    holdUpsUI();
+  }
+  else if (mousePressed&& (mouseX <width*0.15) && (mouseY< (menuE+(0.0184*height))) && (mouseY < (menuE-(0.009*height))))
+  {
+    longTermGoalsUI();
+  }
+  else if (mousePressed&& (mouseX <width*0.15) && (mouseY< (menuF+(0.0184*height))) && (mouseY < (menuF-(0.009*height))))
+  {
+    projectsListUI();
+  }
+  else if (mousePressed&& (mouseX <width*0.15) && (mouseY< (menuG+(0.0184*height))) && (mouseY < (menuG-(0.009*height))))
+  {
+   tasksListUI();
+  }
+  
 }
 
 
@@ -105,3 +103,17 @@ void holdUpsUI()
 {
   println("holdups");
 }
+void longTermGoalsUI()
+{
+  println("long term goals");
+}
+void projectsListUI()
+{
+  println("projects");
+}
+void tasksListUI()
+{
+  println("tasks");
+}
+
+
