@@ -1,14 +1,35 @@
 import java.util.scanner;
 
-class brainDump
+class main
 {
+  Scanner sc = new Scanner(System.in);
   int n;
-    public static void main(String[] args)
+  ArrayList<String> brainDump = new ArrayList<String>;
+
+  void addData()
+  {
+    System.out.println("Please enter how many ideas you have.");
+    n = Integer.parseInt(Scanner.nextInt());
+    System.out.println("Please dump your brain.");
+    for (int i = 0; i < n; i++)
     {
-        Scanner sc = new Scanner(System.in);
-        ArrayList<String> brainDump = new ArrayList<String>;
-        System.out.println("Please enter how many ideas you have.");
-        n = Integer.parseInt(Scanner.nextInt());
-        System.out.println("");
+        brainDump.add(sc.nextLine());
     }
+  }
+
+  void display()
+  {
+      if (brainDump.isEmpty())
+      {
+        System.out.println("Error: No contents dumped.");
+      }
+      else
+      {
+          for (int i = 0; i < brainDump.size(); i++)
+          {
+            System.out.println(brainDump.get(i));
+          }
+      }
+  }
+
 }
